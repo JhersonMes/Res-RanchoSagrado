@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -16,31 +16,42 @@ import java.time.LocalDate;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmployee;
 
-    @Column(nullable = false, length = 8)
-    private Integer dni;
-
-    @Column(nullable = false, length = 70)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(nullable = false, length = 70)
+    @Column(nullable = false, length = 50)
     private String lastName;
 
-    @Column(nullable = false, length = 30)
-    private String email;
+    @Column(nullable = false, length = 100)
+    private String address;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 100)
+    private String role;
+
+    @Column(nullable = false, length = 9)
     private String phone;
 
-    @Column(nullable = false, length = 30)
-    private String role; // MESERO, COCINERO, CAJERO, ADMINISTRADOR
+    @Column(nullable = false, length = 100, unique = true)
+    private String email;
 
-    @Column(nullable = false)
-    private LocalDate hireDate;
+    @Column(nullable = false, length = 15)
+    private String status;
 
-    @Column(nullable = false)
-    private boolean status;
+    @Column(nullable = false, length = 8, unique = true)
+    private String dni;
+
+    // Muchos a Muchos con Turnos (Como tu ejemplo de User y Role)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "employee_shift",
+            joinColumns = @JoinColumn(name = "id_employee", referencedColumnName = "idEmployee"),
+            inverseJoinColumns = @JoinColumn(name = "id_shift", referencedColumnName = "idShift"),
+            foreignKey = @ForeignKey(name = "FK_EMPLOYEE_SHIFT"),
+            inverseForeignKey = @ForeignKey(name = "FK_SHIFT_EMPLOYEE")
+    )
+    private List<Shift> shifts;
 }

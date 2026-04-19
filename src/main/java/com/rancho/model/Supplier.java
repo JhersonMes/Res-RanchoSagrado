@@ -14,25 +14,28 @@ import lombok.NoArgsConstructor;
 public class Supplier {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idSupplier;
 
-    @Column(nullable = false, length = 11)
+    @Column(nullable = false, length = 200)
+    private String companyName;
+
+    @Column(nullable = false, length = 11, unique = true)
     private String ruc;
 
-    @Column(nullable = false, length = 100)
-    private String name;
+    @Column(nullable = false, length = 100, unique = true)
+    private String contactEmail;
 
-    @Column(nullable = false, length = 30)
-    private String contactPhone;
+    @Column(nullable = false, length = 9)
+    private String phone;
 
-    @Column(nullable = true, length = 50)
-    private String email;
-
-    @Column(nullable = true, length = 150)
+    @Column(nullable = false, length = 250)
     private String address;
 
-    @Column(nullable = false)
-    private boolean status;
+    @Column(nullable = false, length = 200)
+    private String supplyType;
+
+    @Column(nullable = false, length = 50)
+    private String status;
 }
