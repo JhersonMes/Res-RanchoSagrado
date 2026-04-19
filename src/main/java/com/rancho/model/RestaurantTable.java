@@ -18,10 +18,10 @@ public class RestaurantTable {
     @EqualsAndHashCode.Include
     private Integer idTable;
 
-    @Column(nullable = false)
+    @Column(nullable = false)//NO PUEDE SER NULO---OJO!!
     private Integer tableNumber;
 
-    @Column(nullable = false)
+    @Column(nullable = false)//NO PUEDE SER NULO----OJO!! 
     private Integer capacity;
 
     @Column(nullable = false, length = 20)
