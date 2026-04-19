@@ -1,5 +1,4 @@
 package com.rancho.model;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +24,7 @@ public class Category {
 
     @Column(nullable = false, length = 70)//name="nombre")
     private String name;
-
+    //faltaba un coma, se corrigio
     @Column(nullable = true, length = 200)
     private String description;
 
