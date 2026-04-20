@@ -26,4 +26,10 @@ public class RestaurantTable {
 
     @Column(nullable = false, length = 20)
     private String status; // LIBRE, OCUPADA, RESERVADA
+
+    @Column(length = 100)
+    private String location;
+
+    @OneToMany(mappedBy = "restaurantTable", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private java.util.List<Order> orders;
 }
