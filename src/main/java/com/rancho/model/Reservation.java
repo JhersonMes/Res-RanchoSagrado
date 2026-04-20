@@ -32,6 +32,9 @@ public class Reservation {
     @Column(nullable = true, length = 300)
     private String notes;
 
+    @Column(length = 100)
+    private String specialOccasion;
+
     @ManyToOne
     @JoinColumn(name = "idClient", nullable = false)
     private Client client;
