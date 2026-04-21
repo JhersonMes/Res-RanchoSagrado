@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "restaurant_tables")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class RestaurantTable {
 
@@ -18,12 +19,15 @@ public class RestaurantTable {
     @EqualsAndHashCode.Include
     private Integer idTable;
 
-    @Column(nullable = false)//NO PUEDE SER NULO---OJO!!
+    @Column(name = "numero_mesa", nullable = false)
     private Integer tableNumber;
 
-    @Column(nullable = false)//NO PUEDE SER NULO----OJO!! 
+    @Column(name = "capacidad", nullable = false)
     private Integer capacity;
 
-    @Column(nullable = false, length = 20)
-    private String status; // LIBRE, OCUPADA, RESERVADA
+    @Column(name = "ubicacion", length = 100)
+    private String location;
+
+    @Column(name = "estado", nullable = false, length = 20)
+    private String status; // DISPONIBLE, OCUPADA, RESERVADA
 }

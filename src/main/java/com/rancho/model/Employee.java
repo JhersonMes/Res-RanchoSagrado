@@ -30,7 +30,7 @@ public class Employee {
     private String address;
 
     @Column(nullable = false, length = 100)
-    private String role;
+    private String job;
 
     @Column(nullable = false, length = 9)
     private String phone;
@@ -45,7 +45,7 @@ public class Employee {
     private String dni;
 
     // Muchos a Muchos con Turnos (Como tu ejemplo de User y Role)
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "employee_shift",
             joinColumns = @JoinColumn(name = "id_employee", referencedColumnName = "idEmployee"),

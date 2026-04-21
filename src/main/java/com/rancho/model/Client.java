@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,8 +26,21 @@ public class Client {
     private Integer dni;
     @Column(nullable = false, length = 70)//name="nombre")
     private String name;
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 50)
+    private String lastName;
+
+    @Column(length = 9)
+    private String phone;
+
+    @Column(length = 100)
     private String email;
-    @Column(nullable = false, length = 10)
-    private Integer numb;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
+
+    @Column(length = 150)
+    private String address;
+
+    @Column(length = 11, unique = true)
+    private String ruc;
 }

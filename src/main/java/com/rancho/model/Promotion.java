@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -37,4 +38,15 @@ public class Promotion {
 
     @Column(nullable = false)
     private boolean status;
+
+    // Agrega esto a tu clase Promotion
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "product_promotion",
+            joinColumns = @JoinColumn(name = "id_promotion"),
+            inverseJoinColumns = @JoinColumn(name = "id_product"),
+            foreignKey = @ForeignKey(name = "FK_PROMOTION_PRODUCT"),
+            inverseForeignKey = @ForeignKey(name = "FK_PRODUCT_PROMOTION")
+    )
+    private List<Product> products;
 }

@@ -26,17 +26,24 @@ public class Reservation {
     @Column(nullable = false)
     private Integer numberOfPeople;
 
+    @Column(nullable = false, length = 100)
+    private String specialOccasion;
+
     @Column(nullable = false, length = 20)
     private String status; // PENDIENTE, CONFIRMADA, CANCELADA
 
     @Column(nullable = true, length = 300)
     private String notes;
 
+    // Relación con Cliente
     @ManyToOne
-    @JoinColumn(name = "idClient", nullable = false)
+    @JoinColumn(name = "id_client", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_RESERVATION_CLIENT"))
     private Client client;
 
+    // Relación con Mesa
     @ManyToOne
-    @JoinColumn(name = "idTable", nullable = false)
+    @JoinColumn(name = "id_table", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_RESERVATION_TABLE"))
     private RestaurantTable restaurantTable;
 }

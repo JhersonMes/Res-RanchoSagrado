@@ -26,17 +26,18 @@ public class OrderDetail {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal unitPrice;
 
-    @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal subtotal;
-
     @Column(nullable = true, length = 200)
     private String notes;
 
+    // Relación con el Pedido (Muchos detalles pertenecen a un Pedido)
     @ManyToOne
-    @JoinColumn(name = "idOrder", nullable = false)
+    @JoinColumn(name = "id_order", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_ORDER_DETAIL_ORDER"))
     private Order order;
 
+    // Relación con el Producto (Muchos detalles pueden referenciar a un mismo Producto)
     @ManyToOne
-    @JoinColumn(name = "idProduct", nullable = false)
+    @JoinColumn(name = "id_product", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_ORDER_DETAIL_PRODUCT"))
     private Product product;
 }

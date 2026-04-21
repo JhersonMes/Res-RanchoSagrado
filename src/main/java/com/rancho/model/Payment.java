@@ -30,10 +30,14 @@ public class Payment {
     @Column(nullable = false, length = 30)
     private String paymentMethod; // EFECTIVO, TARJETA, YAPE, PLIN
 
+    @Column(nullable = false, length = 100)
+    private String cardDetails;
+
     @Column(nullable = false, length = 20)
     private String status; // PAGADO, PENDIENTE, REEMBOLSADO
 
     @ManyToOne
-    @JoinColumn(name = "idOrder", nullable = false)
+    @JoinColumn(name = "id_order", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_PAYMENT_ORDER"))
     private Order order;
 }
