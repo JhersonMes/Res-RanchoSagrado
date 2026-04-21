@@ -34,7 +34,6 @@ public class Inventory {
     private BigDecimal maxStock;
 
     // Relación Muchos a Uno con Ingrediente
-    // La pata de gallo en el diagrama indica que aquí va la FK
     @ManyToOne
     @JoinColumn(name = "id_ingredient", nullable = false,
             foreignKey = @ForeignKey(name = "FK_INVENTORY_INGREDIENT"))

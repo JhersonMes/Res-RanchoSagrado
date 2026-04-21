@@ -23,7 +23,7 @@ public class Menu {
     private String name;
 
     @Column(nullable = false)
-    private Integer dishQuantity; // Cantidad_Platos
+    private Integer dishQuantity;
 
     @Column(length = 100)
     private String description;

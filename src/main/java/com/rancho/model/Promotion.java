@@ -39,7 +39,6 @@ public class Promotion {
     @Column(nullable = false)
     private boolean status;
 
-    // Agrega esto a tu clase Promotion
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "product_promotion",

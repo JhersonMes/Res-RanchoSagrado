@@ -29,10 +29,10 @@ public class Order {
     private String status; // PENDIENTE, EN_PROCESO, LISTO, ENTREGADO, CANCELADO
 
     @Column(name = "detalle_pedido", length = 255)
-    private String detail; // Notas adicionales del pedido
+    private String detail;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal subTotal; // Agregado según tu diagrama
+    private BigDecimal subTotal;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal total;

@@ -44,7 +44,7 @@ public class Employee {
     @Column(nullable = false, length = 8, unique = true)
     private String dni;
 
-    // Muchos a Muchos con Turnos (Como tu ejemplo de User y Role)
+    // Muchos a Muchos con Turnos
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "employee_shift",

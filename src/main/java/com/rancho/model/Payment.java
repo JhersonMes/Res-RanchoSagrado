@@ -36,9 +36,6 @@ public class Payment {
     @Column(nullable = false, length = 20)
     private String status; // PAGADO, PENDIENTE, REEMBOLSADO
 
-    @Column(length = 100)
-    private String cardDetails;
-
     @ManyToOne
     @JoinColumn(name = "id_order", nullable = false,
             foreignKey = @ForeignKey(name = "FK_PAYMENT_ORDER"))

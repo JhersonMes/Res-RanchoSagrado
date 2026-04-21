@@ -26,7 +26,7 @@ public class Product {
     private String description;
 
     @Column(nullable = false)
-    private Float preparationTime; // Sigue siendo útil para platos cocinados
+    private Float preparationTime;
 
     @Column(nullable = false, precision = 8, scale = 2)
     private BigDecimal price;
