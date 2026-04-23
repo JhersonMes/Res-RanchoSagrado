@@ -22,7 +22,7 @@ public class RestaurantTable {
     @Column(name = "numero_mesa", nullable = false)
     private Integer tableNumber;
 
-    @Column(name = "capacidad", nullable = false)
+    @Column(name = "capacidad", nullable = false)//capacidad obligatoria para la base de datos 
     private Integer capacity;
 
     @Column(name = "ubicacion", length = 100)
