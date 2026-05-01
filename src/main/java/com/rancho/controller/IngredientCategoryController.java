@@ -11,37 +11,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rancho.model.Category;
-import com.rancho.service.ICategoryService;
+import com.rancho.model.IngredientCategory;
+import com.rancho.service.IIngredientCategoryService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/ingredient-category")
 @RequiredArgsConstructor
 
+public class IngredientCategoryController {
 
-public class CategoryController {
-    private final ICategoryService service;
+    private final IIngredientCategoryService service;
 
-    @GetMapping // GET, POST, PUT, DELETE
-    public List<Category> findAll() throws Exception{ //devuelve todas las categorias 
+    @GetMapping
+    public List<IngredientCategory> findAll() throws Exception {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Category findById(@PathVariable("id") Integer id) throws Exception{
+    public IngredientCategory findById(@PathVariable("id") Integer id) throws Exception{
         return service.findById(id);
     }
 
     @PostMapping
-    public Category save(@RequestBody Category category) throws Exception{
-        return service.save(category);
+    public IngredientCategory save(@RequestBody IngredientCategory ingredientCategory) throws Exception{
+        return service.save(ingredientCategory);
     }
 
     @PutMapping("/{id}")
-    public Category update(@RequestBody Category category, @PathVariable("id") Integer id) throws Exception{
-        return service.update(category, id);
+    public IngredientCategory update(@RequestBody IngredientCategory ingredientCategory, @PathVariable("id") Integer id) throws Exception{
+        return service.update(ingredientCategory, id);
     }
 
     @DeleteMapping("/{id}")
