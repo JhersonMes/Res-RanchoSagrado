@@ -19,6 +19,11 @@ public class ClientService implements IClientService {
     }
 
     @Override
+    public List<Client> saveAll(List<Client> clients) throws Exception {
+        return repo.saveAll(clients);
+    }
+
+    @Override
     public Client update(Client client, Integer id) throws Exception {
         client.setIdClient(id);
         return repo.save(client);
