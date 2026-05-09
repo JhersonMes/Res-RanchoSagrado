@@ -1,8 +1,9 @@
-package com.rancho.service;
+package com.rancho.service.implementation;
 
 import java.util.List;
 import com.rancho.model.Contract;
 import com.rancho.repository.IContractRepository;
+import com.rancho.service.IContractService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

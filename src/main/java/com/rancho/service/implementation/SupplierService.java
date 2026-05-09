@@ -1,9 +1,10 @@
-package com.rancho.service;
+package com.rancho.service.implementation;
 
 import java.util.List;
 
 import com.rancho.model.Supplier;
 import com.rancho.repository.ISupplierRepository;
+import com.rancho.service.ISupplierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

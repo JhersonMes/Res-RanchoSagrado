@@ -1,9 +1,10 @@
-package com.rancho.service;
+package com.rancho.service.implementation;
 
 import java.util.List;
 
 import com.rancho.model.Client;
 import com.rancho.repository.IClientRepository;
+import com.rancho.service.IClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,9 @@
-package com.rancho.service;
+package com.rancho.service.implementation;
 
 import java.util.List;
 import com.rancho.model.Ingredient;
 import com.rancho.repository.IIngredientRepository;
+import com.rancho.service.IIngredientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
