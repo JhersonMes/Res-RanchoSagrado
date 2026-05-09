@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/ingredients")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*") //CORS
 public class IngredientController {
 
     private final IIngredientService service;
